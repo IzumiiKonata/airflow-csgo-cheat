@@ -58,6 +58,35 @@ void c_thirdperson::run_alive()
 		offset.z *= tr.fraction;
 
 		HACKS->input->camera_offset = { offset.x, offset.y, offset.z };
+
+		if (g_cfg.misc.movement_camera) {
+			vec3_t eye_pos = HACKS->local->get_eye_position();
+			vec3_t vec = vec3_t(g_cfg.misc.interpX, g_cfg.misc.interpY, g_cfg.misc.interpZ);
+
+			float dist = eye_pos.dist_to(vec);
+			bool should_update = dist > 120;
+
+			if (g_cfg.misc.interpX == 0 || should_update) {
+				g_cfg.misc.interpX = eye_pos.x;
+			}
+
+			if (g_cfg.misc.interpY == 0 || should_update) {
+				g_cfg.misc.interpY = eye_pos.y;
+			}
+
+			if (g_cfg.misc.interpZ == 0 || should_update) {
+				g_cfg.misc.interpZ = eye_pos.z;
+			}
+
+			g_cfg.misc.interpX = std::lerp(g_cfg.misc.interpX, eye_pos.x, RENDER->get_animation_speed() * (g_cfg.misc.interp_speed / 10.0f));
+			g_cfg.misc.interpY = std::lerp(g_cfg.misc.interpY, eye_pos.y, RENDER->get_animation_speed() * (g_cfg.misc.interp_speed / 10.0f));
+			g_cfg.misc.interpZ = std::lerp(g_cfg.misc.interpZ, eye_pos.z, RENDER->get_animation_speed() * (g_cfg.misc.interp_speed / 10.0f));
+			
+			vec3_t view_offset = HACKS->local->view_offset();
+
+			HACKS->local->view_offset() = { -(eye_pos.x - g_cfg.misc.interpX), -(eye_pos.y - g_cfg.misc.interpY), view_offset.z };
+		}
+
 	}
 }
 

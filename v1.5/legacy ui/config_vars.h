@@ -401,6 +401,10 @@ struct configs_t
 		int thirdperson_dist = 150;
 		bool thirdperson_dead{};
 
+		bool movement_camera{};
+		int interp_speed = 10;
+		float interpX = 0, interpY = 0, interpZ = 0;
+
 		bool blend_scope{};
 		int scope_amt = 50;
 		int attachments_amt = 100;

@@ -1291,6 +1291,8 @@ void c_menu::draw_ui_items()
 						key_bind(CXOR("Thirdperson"), g_cfg.binds[tp_b]);
 						slider_int(CXOR("Distance"), &g_cfg.misc.thirdperson_dist, 10, 300);
 						checkbox(CXOR("While dead"), &g_cfg.misc.thirdperson_dead);
+						checkbox(CXOR("Movement Camera"), &g_cfg.misc.movement_camera);
+						slider_int(CXOR("Interp Speed"), &g_cfg.misc.interp_speed, 5, 15);
 					}
 					end_child;
 

@@ -3,6 +3,7 @@
 #if ALPHA || BETA
 HMODULE cheat_module{};
 
+
 // credits to @panzerfaust
 LONG __stdcall exception_handler(EXCEPTION_POINTERS* ex) {
 	// continue execution on useless exceptions.

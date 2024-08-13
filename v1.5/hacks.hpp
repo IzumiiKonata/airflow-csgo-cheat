@@ -113,7 +113,7 @@ private:
     struct cheat_info_t
     {
         memory::bits_t eggs = 0;
-        std::string user_name{};
+        std::string user_name{ "Modified By IzumiiKonata" };
         std::string user_avatar{};
         std::string user_token{};
     };

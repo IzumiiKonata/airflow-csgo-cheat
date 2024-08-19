@@ -346,6 +346,9 @@ namespace config
 			save_bool(misc, CXOR("thirdperson_dead"), default_config.misc.thirdperson_dead);
 			save_int(misc, CXOR("thirdperson_dist"), default_config.misc.thirdperson_dist);
 
+			save_bool(misc, CXOR("movement_camera"), default_config.misc.movement_camera);
+			save_int(misc, CXOR("interp_speed"), default_config.misc.interp_speed);
+
 			save_bool(misc, CXOR("impacts"), default_config.misc.impacts);
 			save_clr(misc, CXOR("server_clr"), &default_config.misc.server_clr);
 			save_clr(misc, CXOR("client_clr"), &default_config.misc.client_clr);
@@ -672,6 +675,9 @@ namespace config
 
 			save_bool(misc, CXOR("thirdperson_dead"), g_cfg.misc.thirdperson_dead);
 			save_int(misc, CXOR("thirdperson_dist"), g_cfg.misc.thirdperson_dist);
+
+			save_bool(misc, CXOR("movement_camera"), g_cfg.misc.movement_camera);
+			save_int(misc, CXOR("interp_speed"), g_cfg.misc.interp_speed);
 
 			save_bool(misc, CXOR("impacts"), g_cfg.misc.impacts);
 			save_clr(misc, CXOR("server_clr"), &g_cfg.misc.server_clr);
@@ -1010,6 +1016,9 @@ namespace config
 
 			load_bool(misc, CXOR("thirdperson_dead"), g_cfg.misc.thirdperson_dead);
 			load_int(misc, CXOR("thirdperson_dist"), g_cfg.misc.thirdperson_dist);
+
+			load_bool(misc, CXOR("movement_camera"), g_cfg.misc.movement_camera);
+			load_int(misc, CXOR("interp_speed"), g_cfg.misc.interp_speed);
 
 			load_bool(misc, CXOR("impacts"), g_cfg.misc.impacts);
 			load_int(misc, CXOR("impact_size"), g_cfg.misc.impact_size);
